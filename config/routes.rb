@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search/index'
+
   root to: 'pages#home'
 
   resources :sports do

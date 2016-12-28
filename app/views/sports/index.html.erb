@@ -1,8 +1,10 @@
-<div class="container">
+<div class="container sports-container">
   <div class="row text-center">
     <h1>Sports</h1>
     <% @sports.each do |sport| %>
-      <p> <%= sport.name %> </p>
+	    <div class="item">
+			<a href="/sports/<%= sport.id %>"> <%= sport.name %> <%= image_tag "/images/#{sport.id}.png" %> </a>
+      	</div>
     <%end%>
   </div>
 </div>
