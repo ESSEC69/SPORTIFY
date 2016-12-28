@@ -6,6 +6,7 @@ class CreateTrials < ActiveRecord::Migration
       t.float :totalDistance
       t.string :description
       t.float :level
+      t.string :slug
 
       t.timestamps null: false
     end

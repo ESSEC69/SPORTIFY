@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20161228142635) do
     t.date     "endDate"
     t.string   "location"
     t.integer  "capacity"
+    t.string   "slug"
     t.integer  "master_event_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20161228142635) do
     t.string   "location"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "slug"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "organizer_id"
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 20161228142635) do
   create_table "sports", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
+    t.string   "slug"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -66,6 +69,7 @@ ActiveRecord::Schema.define(version: 20161228142635) do
     t.float    "totalDistance"
     t.string   "description"
     t.float    "level"
+    t.string   "slug"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
