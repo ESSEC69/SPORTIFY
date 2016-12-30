@@ -3,7 +3,7 @@
     <h1>Sports</h1>
     <% @sports.each do |sport| %>
 	    <div class="item">
-			<a href="/sports/<%= sport.id %>"> <%= sport.name %> <%= image_tag "/images/#{sport.id}.png" %> </a>
+			<a href="/sports/<%= sport.id %>"> <%= sport.name %> <%= image_tag "#{sport.id}/logo.png" %> </a>
       	</div>
     <%end%>
   </div>

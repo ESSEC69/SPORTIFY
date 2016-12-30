@@ -16,6 +16,9 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'

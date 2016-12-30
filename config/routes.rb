@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'search/index'
+  
+  get 'search/events'
 
   root to: 'pages#home'
 
