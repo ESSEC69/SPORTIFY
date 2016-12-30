@@ -1,0 +1,25 @@
+<div class="container">
+<div class="row text-center">
+<%= form_for(@event) do |f| %>
+  <%= f.label :nom %>:
+  <%= f.text_field :name %><br />
+  <%= f.label :description %>:
+  <%= f.text_field :description %><br />
+  <%= f.label :Début %>:
+  <%= f.text_field :startDate %><br />
+  <%= f.label :Fin %>:
+  <%= f.text_field :endDate %><br />
+  <%= f.label :Lieu %>:
+  <%= f.text_field :location %><br />
+  <%= f.label :Capacité %>:
+  <%= f.text_field :capacity %><br />
+  <%= f.label :Epreuve %>:
+  <%= f.text_field :trial_id %><br />
+  <%= f.label :MasterEvent %>:
+  <%= f.text_field :master_event_id %><br />
+<%= f.submit %>
+<% end %>
+</div>
+</div>
+
+

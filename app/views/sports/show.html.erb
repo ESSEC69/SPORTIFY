@@ -1,6 +1,16 @@
 <div class="container">
   <div class="row text-center">
-    <h1>Sport</h1>
-    <p> <%=@sport.name%> </p>
+    <h4>Sport</h4>
+    <h2> <%=@sport.name%> </h2>
+    <p> <%=@sport.description%></p>
+  </div>
+  <div class="row">
+    <h4>Epreuves</h4>
+    <% @trials.each do |trial| %>
+    <%= link_to trial.name, trial_path(trial), {class: "btn btn-primary"} %>
+    <%end%>
   </div>
 </div>
+
+
+

@@ -21,6 +21,7 @@ class SportsController < ApplicationController
   end
 
   def show
+    @trials = Trial.where(sport_id: @sport)
 
   end
 

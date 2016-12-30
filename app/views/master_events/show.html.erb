@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row text-center">
+    <h4>Evénement / Compétition</h4>
+    <h2> <%=@master_event.name%> </h2>
+    <p> <%=@master_event.startDate%></p>
+    <p>Sport : <%=@events.first.trial.sport.name %></p>
+  </div>
+  <div class="row">
+    <h4>Les épreuves</h4>
+    <% @events.each do |event| %>
+    <p><%= event.trial.name %> </p>
+    <%end%>
+  </div>
+</div>

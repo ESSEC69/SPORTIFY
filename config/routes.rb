@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   get 'search/index'
-  
+
   get 'search/events'
 
   root to: 'pages#home'
 
   resources :sports do
   end
+
+  resources :trials do
+  end
   resources :events do
+  end
+  resources :master_events do
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

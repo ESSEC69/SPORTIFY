@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row text-center">
+    <h4>Epreuve</h4>
+    <h2> <%=@trial.name%> </h2>
+    <p> <%=@trial.description%></p>
+  </div>
+  <div class="row">
+    <h4>Les événements</h4>
+    <% @events.each do |event| %>
+    <%= link_to event.master_event.name, master_event_path(event.master_event), {class: "btn btn-primary"} %>
+    <%end%>
+
+
+  </div>
+</div>
+
+
+
