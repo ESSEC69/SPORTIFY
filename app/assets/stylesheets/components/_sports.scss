@@ -12,3 +12,16 @@
         }
     }
 }
+
+.sport-header {
+    height: 250px;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    display: table;
+    color: white;
+    .sport-title {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
