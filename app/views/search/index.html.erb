@@ -1,11 +1,11 @@
 
 <div class="container">
 <div class="row text-center">
-	<%= form_tag("/search/index", method: "get") do %>
+	<%= form_tag("/search/index", method: "get", class: "event-search") do %>
 	  <%= label_tag(:q, "Search for:") %>
 	  <%= text_field_tag(:q) %>
 	  <%= submit_tag("Search") %>
 	<% end %>
 </div>
-<div class="calendar" data-source="/global.php"></div>
+<div class="calendar"></div>
 </div>

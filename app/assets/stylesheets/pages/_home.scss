@@ -4,17 +4,38 @@
  * ------------------------------------- */
 .banner {
   color: white;
-  text-align: center;
   height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  display: table;
+  background-size: cover;
+  transition: all 1s;
+
+  .banner-content {
+    text-align: center;
+    transform: translateY(70%);
+    transition: all 1s;
+  }
+  .banner p {
+    font-size: 20px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+  }
 }
-.banner p {
-  font-size: 20px;
-  font-weight: lighter;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 20px;
+
+.results-container {
+  display: none;
 }
+
+.result-found {
+  .banner {
+    height: 250px;
+  }
+  .banner-content {
+    transform: translateY(0%);
+  }
+  .results-container {
+    display: block;
+  }
+}
+
