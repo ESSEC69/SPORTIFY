@@ -4,6 +4,7 @@ class CreateSports < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :slug
+      t.string :keywords
 
       t.timestamps null: false
     end

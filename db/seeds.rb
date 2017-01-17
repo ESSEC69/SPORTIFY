@@ -60,6 +60,7 @@ aso.save!
 aintrimantri = MasterEvent.new(name:"Aintriman", startDate:"12/07/2017", endDate:"13/07/2017", country: "France", location: "Nantua", organizer_id:"#{aintriman.id}")
 aintrimantri.save!
 
+triathlondurevermont = MasterEvent.new(name:"Oxyrace Triathlon du Revermont", startDate:"12/07/2017", endDate:"13/07/2017", country: "France", location: "Treffort-Cuisiat", organizer_id:"#{oxyrace.id}")
 triathlondurevermont.save!
 
 epreuve1 = Event.new(name: "Cross triathlon XS", trial_id:xs.id, startDate:"12/07/2017", endDate:"12/07/2017", location:triathlondurevermont.location, capacity: "150", master_event_id:triathlondurevermont.id)

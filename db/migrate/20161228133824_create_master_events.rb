@@ -9,6 +9,7 @@ class CreateMasterEvents < ActiveRecord::Migration
       t.float :latitude
       t.float :longitude
       t.string :slug
+      t.string :keywords
 
       t.timestamps null: false
     end
