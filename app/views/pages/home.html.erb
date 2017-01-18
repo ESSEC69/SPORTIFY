@@ -2,21 +2,25 @@
   <div class="banner-content">
     <h1>Sportify</h1>
     <p>Le plus grand terrain de sport</p>
-    <form>
     <div class="container">
-    <div class="row">
-      <div class="xs-10">
-        <input class="form-control" type="text" value="Triathlon XS Paris Mai" id="example-text-input">
-      </div>
-      <p></p>
-      <div class="xs-2">
-        <button type="submit" class="btn btn-primary"> Chercher </button>
+      <div class="row">
+        <%= form_tag("/search/index", method: "get", class: "index-search") do %>
+          <div class="xs-10">
+            <%= text_field_tag(:q, "", class: 'form-control', :autocomplete => 'false') %>
+          </div>
+          <p></p>
+          <div class="xs-2">
+            <%= submit_tag("Chercher", :id=>"button", :class=>"btn btn-primary", :name=>"submit") %>
+          </div>
+        <% end %>
       </div>
     </div>
-    </div>
-    </form>
   </div>
 </div>
-
-
+<div class="container">
+  <div class="row results-container">
+    <table class="table table-striped results-table">
+    </table>
+  </div>
+</div>
 

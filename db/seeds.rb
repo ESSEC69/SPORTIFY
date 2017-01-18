@@ -14,8 +14,7 @@ Organizer.destroy_all
 
 
 
-
-
+#### SPORTS #####
 triathlon = Sport.new(name: 'Triathlon', description: 'Nager Rouler Courir')
 swimrun = Sport.new(name: 'Swim & Run', description: 'Nager & Rouler')
 running = Sport.new(name: 'Running', description: 'Courir')
@@ -35,24 +34,40 @@ cyclisme.save!
 trail.save!
 
 
-xs = Trial.new(name: 'Triathlon XS', sport_id: "#{triathlon.id}", totalDistance: "30", description: "distance courte", level: "1")
-xs.save!
 
-s = Trial.new(name: 'Triathlon S', sport_id: "#{triathlon.id}", totalDistance: "50", description: "distance normale", level: "2")
-s.save!
 
-m = Trial.new(name: 'Triathlon M', sport_id: "#{triathlon.id}", totalDistance: "100", description: "distance moyenne", level: "3")
-m.save!
 
-dixkm = Trial.new(name: '10 km', sport_id: "#{running.id}", totalDistance: "10", description: "distance courte", level: "1")
+#### TRIALS #####
+triathlonXs = Trial.new(name: 'Triathlon XS', sport_id: "#{triathlon.id}", totalDistance: "30", description: "Triathlon de très courte distance", level: "1")
+triathlonXs.save!
+triathlonS = Trial.new(name: 'Triathlon S', sport_id: "#{triathlon.id}", totalDistance: "50", description: "Triathlon de courte distance", level: "2")
+triathlonS.save!
+triathlonM = Trial.new(name: 'Triathlon M', sport_id: "#{triathlon.id}", totalDistance: "100", description: "Triathlon de distance moyenne", level: "3")
+triathlonM.save!
+triathlonL = Trial.new(name: 'Triathlon L', sport_id: "#{triathlon.id}", totalDistance: "100", description: "Triathlon de longue distance", level: "4")
+triathlonL.save!
+halfIM = Trial.new(name: 'Ironman 70.5', sport_id: "#{triathlon.id}", totalDistance: "100", description: "Ironman 70.5 (half-ironman)", level: "3")
+halfIM.save!
+fullIM = Trial.new(name: 'Ironman', sport_id: "#{triathlon.id}", totalDistance: "200", description: "Ironman", level: "4")
+fullIM.save!
+dixkm = Trial.new(name: '10 km', sport_id: "#{running.id}", totalDistance: "10", description: "10KM", level: "1")
 dixkm.save!
+semi = Trial.new(name: 'Semi-marathon', sport_id: "#{running.id}", totalDistance: "21.5", description: "Semi-marathon", level: "3")
+semi.save!
+marathon = Trial.new(name: 'Marathon', sport_id: "#{running.id}", totalDistance: "42.12", description: "Marathon", level: "4")
+marathon.save!
 
 
-oxyrace = Organizer.new(name:"O'xyrace")
+#### ORGANIZERS #####
+oxyrace = Organizer.new(name:"Oxyrace")
 oxyrace.save!
-
 aintriman = Organizer.new(name:"Aintriman")
 aintriman.save!
+aso = Organizer.new(name:"ASO Challenge")
+aso.save!
+
+
+
 
 aintrimantri = MasterEvent.new(name:"Aintriman", startDate:"12/07/2017", endDate:"13/07/2017", country: "France", location: "Nantua", organizer_id:"#{aintriman.id}")
 aintrimantri.save!

@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :location
       t.integer :capacity
       t.string :slug
+      t.string :keywords
       t.references :master_event, index: true, foreign_key: true
 
       t.timestamps null: false

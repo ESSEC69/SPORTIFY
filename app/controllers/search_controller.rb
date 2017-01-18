@@ -1,9 +1,23 @@
 class SearchController < ApplicationController
   def index
   	if params[:q].present?
-  		render plain: params[:q].inspect
-  	else
-  	end
+      # response = Event.search params[:q]
+      response = SearchEventService.magicSearch params[:q]
+      monthlyCalendar = Hash.new
+      response.results.each do |event|
+        unless event.nil? || event == 0
+          eventHash = DisplayEventService.generate(event._source)
+
+          if !monthlyCalendar.key?(eventHash["month"])
+            monthlyCalendar[eventHash["month"]] = []
+          end
+
+          monthlyCalendar[eventHash["month"]].push(eventHash)
+        end
+      end
+      render json: monthlyCalendar
+    else
+    end
   end
 
   def events
@@ -15,7 +29,7 @@ class SearchController < ApplicationController
     	eventHash['start'] = event.startDate
     	eventHash['logo'] = ActionController::Base.helpers.image_tag("#{event.trial.sport_id}/logo.png", size: "14")
     	searchEvents.push(eventHash)
-	end
+    end
     render json: searchEvents
   end
 end

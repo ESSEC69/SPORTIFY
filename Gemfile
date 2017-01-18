@@ -22,6 +22,9 @@ gem 'bootstrap-slider-rails'
 
 
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'

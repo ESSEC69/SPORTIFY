@@ -7,6 +7,7 @@ class CreateTrials < ActiveRecord::Migration
       t.string :description
       t.float :level
       t.string :slug
+      t.string :keywords
 
       t.timestamps null: false
     end

@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20161228142635) do
     t.string   "location"
     t.integer  "capacity"
     t.string   "slug"
+    t.string   "keywords"
     t.integer  "master_event_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20161228142635) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "slug"
+    t.string   "keywords"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "organizer_id"
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(version: 20161228142635) do
     t.string   "name"
     t.string   "description"
     t.string   "slug"
+    t.string   "keywords"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -70,6 +73,7 @@ ActiveRecord::Schema.define(version: 20161228142635) do
     t.string   "description"
     t.float    "level"
     t.string   "slug"
+    t.string   "keywords"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
