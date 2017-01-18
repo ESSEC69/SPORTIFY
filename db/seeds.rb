@@ -17,11 +17,23 @@ Organizer.destroy_all
 
 
 triathlon = Sport.new(name: 'Triathlon', description: 'Nager Rouler Courir')
-duathlon = Sport.new(name: 'Duathlon', description: 'Rouler Courir')
+swimrun = Sport.new(name: 'Swim & Run', description: 'Nager & Rouler')
 running = Sport.new(name: 'Running', description: 'Courir')
+cyclocross = Sport.new(name: 'Cyclocross', description: 'Le vélo mais dans la boue')
+raid = Sport.new(name: 'Raid multisport', description: "Esprit d'équipe")
+bikerun = Sport.new(name: 'Bike & Run', description: 'Courir et Rouler')
+cyclisme = Sport.new(name: 'Vélo de route', description: 'Un parfum de Tour de France')
+trail = Sport.new(name: 'Trail', description: 'Courir la montagne')
+
 triathlon.save!
-duathlon.save!
+swimrun.save!
 running.save!
+cyclocross.save!
+raid.save!
+bikerun.save!
+cyclisme.save!
+trail.save!
+
 
 xs = Trial.new(name: 'Triathlon XS', sport_id: "#{triathlon.id}", totalDistance: "30", description: "distance courte", level: "1")
 xs.save!

@@ -1,0 +1,46 @@
+
+
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,36,61,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/8983/pexels-photo.jpeg');">
+  <div class="banner-content">
+
+  <div class="container">
+    <div class="row text-center">
+      <h4>Recherche détaillée</h4>
+    <%= form_tag "/pages/recherche" do %>
+    <%= label_tag 'Sport : ' %>
+    <%= select_tag "sport", options_from_collection_for_select(@sports, "id", "name") %> </br>
+
+    <%= label_tag 'Epreuve : ' %>
+    <%= select_tag "epreuve", options_from_collection_for_select(@trials, "id", "name") %> </br>
+    <%= label_tag 'Dans un rayon de : ' %></br>
+
+  <input id="slider1" type="text" data-slider-ticks="[0, 25, 50, 100, 200]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["0", "25", "50", "100", "200"]'/> </br>
+    <%= label_tag 'Autour de : ' %></br>
+
+    <%= text_field_tag "account", "Ville" %> </br>
+
+    <%= label_tag 'Période : ' %></br>
+
+
+
+  <p>Distance souhaitée :</p>  <b>1 km  </b> <input id="slider2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="5" data-slider-value="[10,150]" data-slider-ticks="[10, 21, 42, 100]"/> <b>  200 km</br>
+
+
+
+    <%= submit_tag "Recherche" %></br>
+    <% end %>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row text-center">
+    <!-- L'idée est de mettre de l'ajax pour que le compteur s'update a chaque modification de la form -->
+    <p># événements à venir : </p> </br>
+    <p> <%= @master_events.length %> </p>
+    </div>
+  </div>
+
+  </div>
+</div>

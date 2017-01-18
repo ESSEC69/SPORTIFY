@@ -18,6 +18,9 @@ gem 'autoprefixer-rails'
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'bootstrap-slider-rails'
+
+
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -26,8 +29,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
-  
-  
+
+
 end
 
 gem 'rails_12factor', group: :production

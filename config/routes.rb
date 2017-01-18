@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  get "recherche", to: "pages#recherche"
+
   resources :sports do
   end
 
