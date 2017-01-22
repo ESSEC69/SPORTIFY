@@ -18,6 +18,9 @@ gem 'autoprefixer-rails'
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'bootstrap-slider-rails'
+
+
 
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
@@ -29,8 +32,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
-  
-  
+
+
 end
 
 gem 'rails_12factor', group: :production
