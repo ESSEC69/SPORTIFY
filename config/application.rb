@@ -35,5 +35,20 @@ module SPORTIFY
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.after_initialize do
+        # Delete the previous articles index in Elasticsearch
+        Event.__elasticsearch__.client.indices.delete index: Event.index_name rescue nil
+
+        # Create the new index with the new mapping
+        Event.__elasticsearch__.client.indices.create \
+          index: Event.index_name,
+          body: { settings: Event.settings.to_hash, mappings: Event.mappings.to_hash }
+
+        Event.__elasticsearch__.refresh_index!
+
+        Event.import
+    end
   end
 end
+

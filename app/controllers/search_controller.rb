@@ -1,3 +1,5 @@
+require 'json'
+
 class SearchController < ApplicationController
   def index
   	if params[:q].present?
@@ -7,6 +9,7 @@ class SearchController < ApplicationController
       response.results.each do |event|
         unless event.nil? || event == 0
           eventHash = DisplayEventService.generate(event._source)
+          logger.info JSON.dump(eventHash)
 
           if !monthlyCalendar.key?(eventHash["month"])
             monthlyCalendar[eventHash["month"]] = []
@@ -31,5 +34,10 @@ class SearchController < ApplicationController
     	searchEvents.push(eventHash)
     end
     render json: searchEvents
+  end
+
+  def import
+    Event.importIndex
+    render json: Hash.new
   end
 end

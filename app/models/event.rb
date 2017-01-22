@@ -41,16 +41,18 @@ class Event < ActiveRecord::Base
         return esKeywords
     end
 
+    def self.importIndex
+		# Delete the previous articles index in Elasticsearch
+		Event.__elasticsearch__.client.indices.delete index: Event.index_name rescue nil
+
+		# Create the new index with the new mapping
+		Event.__elasticsearch__.client.indices.create \
+		  index: Event.index_name,
+		  body: { settings: Event.settings.to_hash, mappings: Event.mappings.to_hash }
+
+		Event.__elasticsearch__.refresh_index!
+
+		Event.import
+	end
+
 end
-
-# Delete the previous articles index in Elasticsearch
-Event.__elasticsearch__.client.indices.delete index: Event.index_name rescue nil
-
-# Create the new index with the new mapping
-Event.__elasticsearch__.client.indices.create \
-  index: Event.index_name,
-  body: { settings: Event.settings.to_hash, mappings: Event.mappings.to_hash }
-
-Event.__elasticsearch__.refresh_index!
-
-Event.import

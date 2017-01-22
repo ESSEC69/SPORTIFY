@@ -63,11 +63,11 @@ aintrimantri.save!
 triathlondurevermont = MasterEvent.new(name:"Oxyrace Triathlon du Revermont", startDate:"12/07/2017", endDate:"13/07/2017", country: "France", location: "Treffort-Cuisiat", organizer_id:"#{oxyrace.id}")
 triathlondurevermont.save!
 
-epreuve1 = Event.new(name: "Cross triathlon XS", trial_id:xs.id, startDate:"12/07/2017", endDate:"12/07/2017", location:triathlondurevermont.location, capacity: "150", master_event_id:triathlondurevermont.id)
+epreuve1 = Event.new(name: "Cross triathlon XS", trial_id:triathlonXs.id, startDate:"12/07/2017", endDate:"12/07/2017", location:triathlondurevermont.location, capacity: "150", master_event_id:triathlondurevermont.id)
 epreuve1.save!
 
-epreuve2 = Event.new(name: "Cross triathlon S", trial_id:s.id, startDate:"12/07/2017", endDate:"12/07/2017", location:triathlondurevermont.location, capacity: "150", master_event_id:triathlondurevermont.id)
+epreuve2 = Event.new(name: "Cross triathlon S", trial_id:triathlonS.id, startDate:"12/07/2017", endDate:"12/07/2017", location:triathlondurevermont.location, capacity: "150", master_event_id:triathlondurevermont.id)
 epreuve2.save!
 
-epreuve3 = Event.new(name: "Cross triathlon M", trial_id:m.id, startDate:"12/07/2017", endDate:"12/07/2017", location:aintrimantri.location, capacity: "150", master_event_id:aintrimantri.id)
+epreuve3 = Event.new(name: "Cross triathlon M", trial_id:triathlonM.id, startDate:"12/07/2017", endDate:"12/07/2017", location:aintrimantri.location, capacity: "150", master_event_id:aintrimantri.id)
 epreuve3.save!
