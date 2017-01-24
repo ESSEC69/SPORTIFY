@@ -22,4 +22,31 @@ class DisplayEventService
 		return eventHash
 	end
 
+	def self.generateClassic(esEvents)
+		monthlyCalendar = Hash.new
+		esEvents.each do |event|
+			unless event.nil? || event == 0
+			  eventHash = self.generate(event._source)
+			  Rails.logger.info JSON.dump(eventHash)
+
+			  if !monthlyCalendar.key?(eventHash["month"])
+			    monthlyCalendar[eventHash["month"]] = []
+			  end
+
+			  monthlyCalendar[eventHash["month"]].push(eventHash)
+			end
+		end
+		return monthlyCalendar
+	end
+
+	def self.generateByDate(esEvents)
+		result = []
+		esEvents.each do |event|
+			unless event.nil? || event == 0
+			  result.push(self.generate(event._source))
+			end
+		end
+		return result
+	end
+
 end

@@ -4,9 +4,9 @@
     <p>Le plus grand terrain de sport</p>
     <div class="container">
       <div class="row">
-        <%= form_tag("/search/index", method: "get", class: "index-search") do %>
+        <%= form_tag("/search/index", method: "get", class: "index-search", autocomplete: "off") do %>
           <div class="xs-10">
-            <%= text_field_tag(:q, "", class: 'form-control', :autocomplete => 'false') %>
+            <%= text_field_tag(:q, "", class: 'form-control', placeholder: "Quel est ton prochain défi ?") %>
           </div>
           <p></p>
           <div class="xs-2">

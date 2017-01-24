@@ -9,8 +9,6 @@
 
 $('.calendar').fullCalendar({
     events: '/search/events',
-var calendar = $('.calendar').fullCalendar({
-    events: [],
     eventLimit: 3,
     eventRender: function(event, element, calEvent) {
         element.find("span").before($("<span class=\"fc-event-icons\"></span>").html(event.logo));
@@ -51,18 +49,9 @@ $(".index-search").submit(function(e) {
        success: function(data)
        {
           $('.results-container').html("");
-          if(Object.keys(data).length > 0) {
+          if(data.count > 0) {
+            $('.results-container').append(data.html);
             $('body').addClass("result-found");
-            $.each(data, function( key, month ) {
-              $('.results-container').append("<h3 class='results-month'>" + key + "</h3>");
-              table = $("<table class='table table-striped results-table'>");
-              table.append("<thead><th>Date</th><th>Épreuve</th><th>Évènement</th><th>Distance</th><th>Lieu</th></thead>");
-              $.each(month, function( index, event ) {
-                var row = "<tr><td>" + event.date + "</td><td>" + event.name + "</td><td><a href='" + event.link + "'>" + event.master_event_name + "</a></td><td>" + event.distance + "</td><td>" + event.location + "</td></tr>";
-                table.append(row);
-              });
-              $('.results-container').append(table);
-            });
           } else {
             $('body').removeClass("result-found");
           }

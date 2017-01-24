@@ -1,0 +1,52 @@
+<div class="row results-container">
+	<% if type == "date" or type == "sport-date" %>
+		<table class="table table-striped results-table">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Épreuve</th>
+					<th>Évènement</th>
+					<th>Distance</th>
+					<th>Lieu</th>
+				</tr>
+			</thead>
+			<tbody>
+    			<% data.each do |event| %>
+					<tr>
+						<td><%= event["date"] %></td>
+						<td><%= event["name"] %></td>
+						<td><a href="<%= event["link"] %>"><%= event["master_event_name"] %></a></td>
+						<td><%= event["distance"] %></td>
+						<td><%= event["location"] %></td>
+					</tr>
+    			<%end%>
+			</tbody>
+		</table>
+	<% else %>
+	    <% data.each do |month, events| %>
+			<h3 class="results-month"><%= month %></h3>
+			<table class="table table-striped results-table">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Épreuve</th>
+						<th>Évènement</th>
+						<th>Distance</th>
+						<th>Lieu</th>
+					</tr>
+				</thead>
+				<tbody>
+	    			<% events.each do |event| %>
+						<tr>
+							<td><%= event["date"] %></td>
+							<td><%= event["name"] %></td>
+							<td><a href="<%= event["link"] %>"><%= event["master_event_name"] %></a></td>
+							<td><%= event["distance"] %></td>
+							<td><%= event["location"] %></td>
+						</tr>
+	    			<%end%>
+				</tbody>
+			</table>
+	    <%end%>
+	<% end %>
+</div>
