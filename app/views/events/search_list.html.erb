@@ -1,5 +1,11 @@
 <div class="row results-container">
 	<% if type == "date" or type == "sport-date" %>
+		<% if type == "sport-date"%>
+			Vous chercher un évènement de <%= sport %> pour le mois de <%= month %>
+	    <% elsif type == "date"%>
+			Vous chercher un évènement pour le mois de <%= month %>
+	    <% end %>
+
 		<table class="table table-striped results-table">
 			<thead>
 				<tr>
@@ -23,6 +29,9 @@
 			</tbody>
 		</table>
 	<% else %>
+	    <% if type == "sport"%>
+			Vous chercher un évènement de <%= sport %>
+	    <% end %>
 	    <% data.each do |month, events| %>
 			<h3 class="results-month"><%= month %></h3>
 			<table class="table table-striped results-table">

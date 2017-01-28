@@ -2,6 +2,9 @@ class SearchEventService
 
 	def self.magicSearch(query)
 		result = Hash.new
+		result["month"] = nil
+  		result["sport"] = nil
+		month = DateHelper.extractMonth(query)
 		range = DateHelper.extractRange(query)
 		sportQuery = SportsHelper.extractSport(query)
 		if !sportQuery.nil? and !range.nil?
@@ -10,17 +13,21 @@ class SearchEventService
 			Rails.logger.debug "SearchEventService GTE > " + range["gte"].to_s
 			Rails.logger.debug "SearchEventService LTE > " + range["lte"].to_s
       		result["data"] = Event.search query: { bool: { must: [ {match: { "trial.sport.name": sportQuery}}, {range:  {"master_event.startDate"  => {gte: range["gte"].to_s, lte: range["lte"].to_s }}} ]}}
+      		result["month"] = month
+      		result["sport"] = sportQuery
       		result["type"] = "sport-date"
 		elsif !sportQuery.nil?
 			Rails.logger.debug "SearchEventService == SEARCH BY SPORT"
 			Rails.logger.debug "SearchEventService > " + sportQuery.to_s
       		result["data"] = Event.search query: { match: { "trial.sport.name": sportQuery}}
+      		result["sport"] = sportQuery
       		result["type"] = "sport"
 		elsif !range.nil?
 			Rails.logger.debug "SearchEventService == SEARCH BY MONTH"
 			Rails.logger.debug "SearchEventService GTE > " + range["gte"].to_s
 			Rails.logger.debug "SearchEventService LTE > " + range["lte"].to_s
       		result["data"] = Event.search query: { range:  {"master_event.startDate"  => {gte: range["gte"].to_s, lte: range["lte"].to_s }}}
+      		result["month"] = month
       		result["type"] = "date"
 		else
 			Rails.logger.debug "SearchEventService > " + query
@@ -72,7 +79,7 @@ class SearchEventService
 		response["type"] = result["type"]
       	Rails.logger.info JSON.dump(data)
 		ac = EventsController.new()
-		response["html"] = ac.render_to_string(:action => "search_list", :layout => false, :locals => {:data => data, :type => response["type"]})
+		response["html"] = ac.render_to_string(:action => "search_list", :layout => false, :locals => {:data => data, :type => response["type"], :sport => result["sport"], :month => result["month"]})
 		return response
 	end
 
